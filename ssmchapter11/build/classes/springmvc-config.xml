@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 配置处理器heandle，映射"ControllerTest"请求 -->
+	<bean name="/controllerTest" class="com.ssm.controller.ControllerTest"/>
+	<!-- 处理器映射，将处理器handle的name作为url进行查找 -->
+	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+	<!-- 处理器适配器，配置对处理器中的handleRequest()方法的调用 -->
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+	<!-- 视图解析器 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<!-- 前缀，后缀 -->
+	<property name="prefix" value="/WEB-INF/jsp/"/>
+	<property name="suffix" value=".jsp"/>
+	</bean>
+</beans>

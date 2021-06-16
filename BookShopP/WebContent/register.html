@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册页面</title>
+		<!--
+		 导入样式三种方式：
+		 1.行内式
+		 2.内嵌式
+		 3.连接式
+		 -->
+		 <style type="text/css">
+			 
+			 #header,#content,#bottom{
+				 margin:0;
+				 padding:0;
+			 } 
+			 
+			 #header .logo{
+				 margin:0;
+				 padding:0;
+				 float:left;				 
+			 }
+			 #header ul{
+				 margin:20px 10px;
+				 padding:0;
+				 float:right;	
+				 list-style:none;  /*取消列表符号*/
+			 } 
+			 #header ul li{
+				 margin:0;
+				 padding:5px 5px;
+				 float:left;				 
+			 }
+			 .empty{
+				 clear:both;   /*清除浮动*/
+			 }
+			 #content{
+				 border-top: 3px solid #3B78DD;
+				 background-color:#E0F2FF;
+				 padding:30px 30px 50px;
+				 text-align: center;
+			 }
+			 
+			 #content .regwrap{
+				 margin:0 auto;
+				 padding:0;
+				 width:50%;
+			 } 
+			 
+			 #bottom .copyright{
+				 margin:0;
+				 padding:20px;
+				 text-align:center;
+				 font-size:14px;
+				 border-top:1px solid gray;
+			 } 
+			 
+			 .adclass{
+				 display: none;
+			 }
+			 
+			 .active{
+				 display: inline;
+			 }
+			 
+		 </style>
+		
+	</head>
+	<body>
+		<div id="header">
+			<div class="logo">
+				<img src="images/logo.png" alt="LOGO" width="180" height="45" />
+				<span >欢迎访问书城管理系统</span>
+			</div>
+			<ul>
+				<li><a href="#">首页</a></li>
+				<li><a href="#">帮助</a></li>
+				<li><a href="#">登录反馈</a></li>
+			</ul>
+			<div class="empty"></div>
+		</div>
+		<div id="content">
+			<div class="regwrap">
+				<form>
+					<table border="0">
+						<tr><td>&nbsp;</td><td><h1>用户信息注册</h1></td></tr>
+						<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+						<tr><td>用户名：</td><td><input type="text" id="username" name="username" /></td></tr>
+						<tr><td>密码：</td><td><input type="password" id="password" name="password" /></td></tr>
+						<tr><td>姓名：</td><td><input type="text" id="cnname" name="cnname" /></td></tr>
+						<tr><td>性别：</td><td>
+						   <input type="radio" name="sex" value="男">男
+						   <input type="radio" name="sex" value="女">女
+						</td></tr>
+						<tr><td>住址：</td><td>
+						   <select id="address" name="address">
+							   <option value="重庆">重庆</option>
+							   <option value="北京">北京</option>
+							   <option value="成都">成都</option>
+						   </select>
+						</td></tr>
+						<tr><td>兴趣：</td><td>
+						   <input type="checkbox" id="fav1" name="fav" value="跑步" />跑步
+						   <input type="checkbox" id="fav2" name="fav" value="游泳" />游泳
+						   <input type="checkbox" id="fav3" name="fav" value="读书" />读书
+						</td></tr>
+						<tr><td>简介：</td><td>
+						   <textarea id="resume" name="resume" rows="5"></textarea>
+						</td></tr>
+						<tr><td>&nbsp;</td><td>
+						     <input type="button" value="提交" onclick="onSubmit()" />
+							 <input type="button" value="重置" onclick="onReset()"/>
+						</td></tr>
+					</table>
+				</form>
+			</div>
+		    <div class="empty"></div>
+		</div>
+		<div id="bottom">
+			<div class="copyright">@copyright 2021,张三，234234234（学号）</div>
+		</div>
+		 <script language="JavaScript">
+			  //定义提交事件的函数
+			  function onSubmit(){
+				  
+				  var uname=document.getElementById("username").value;//获取用户名输入框信息
+				  let psword=document.getElementById("password").value;
+				  let cname=document.getElementById("cnname").value;
+				  
+				  let sex='男';
+				  let sexObj=document.getElementsByName("sex");//返回的单选框的对象数组
+				  for(let i=0;i<sexObj.length;i++){
+					  if(sexObj[i].checked){
+						  sex=sexObj[i].value;    //返回选定状态的值 
+					  }
+				  }
+				  
+				  let addr=document.getElementById("address").value;
+				  
+				  let fav='';
+				  let favObj=document.getElementsByName("fav");//返回的多选框的对象数组
+				  for(let i=0;i<favObj.length;i++){
+					  if(favObj[i].checked){
+						  fav+=favObj[i].value+';';
+					  }
+				  }
+				  
+				  let resume=document.getElementById("resume").value;
+				  
+				  let msg='用户名：'+uname+';密码：'+psword+";姓名："+cname+";性别："+sex+";地址："+addr+";兴趣："+fav+";简介："+resume;
+				  
+				  alert(msg);	
+			  }
+			  
+			  //定义重置事件的函数
+			  function onReset(){
+				  
+				  document.getElementById("username").value='';//设置用户名信息为空
+				  document.getElementById("password").value='';
+				  document.getElementById("cnname").value='';
+				  //单选框，对象数组
+				  document.getElementsByName("sex")[0].checked=true;
+				  document.getElementById("address").value="重庆";
+				  let favObj=document.getElementsByName("fav");
+				  for(let i=0;i<favObj.length;i++){
+					  favObj[i].checked=false;
+				  }
+				  document.getElementById("resume").value='';
+			  }
+			 
+		 </script>
+	</body>
+</html>

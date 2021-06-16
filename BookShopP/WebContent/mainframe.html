@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>XX书城管理系统v1.0</title>
+		<style >
+			body{
+				margin:0;
+				padding:0;
+				font-size:12px;
+				background-color: gray;
+			}
+			.clearit{
+				clear:both;
+			}
+			
+			#leftwrap{
+				margin:0;
+				padding:0;
+				float:left;
+				width:200px; /*固定宽度*/
+				background: url(images/topv1.png) no-repeat top center;
+				min-height: 600px;
+				background-color: white;
+			}
+			/*后代选择器*/
+			#leftwrap .logo{
+				margin: 30px auto 40px;/*左右设置为auto居中*/
+				padding:0;	
+				text-align: center;
+			}
+			#leftwrap .logo span{
+				margin:0;
+				padding:0;
+				position: relative;/*相对定位*/
+				top:-8px; 
+			}
+			
+			#leftwrap .logo span{
+				font-size:22px;	
+				color:white;
+			}
+			
+			#leftwrap .user{
+				margin:10px auto;/*左右设置为auto居中*/
+				padding:0;
+				text-align: center;
+				border-radius: 50% 50%; /*画圆*/
+				width:80px;
+				height:80px;
+				border: 1px solid white;
+				background-color: white;
+				overflow: hidden;/*隐藏超出部分*/
+			}
+			
+			#leftwrap .subtitle {
+				margin:0;
+				padding:0;
+				text-align: center;
+				font-size: 16px;
+			}
+			
+			#leftwrap ul{
+				margin:10px 0;
+				padding:0;
+				list-style: none;
+			}
+			#leftwrap ul a{
+				margin:0;
+				padding:10px;
+				font-size:18px;
+				text-align: center;
+				color:royalblue;
+				display: block;  /*转化为块元素*/
+				text-decoration: none;/*去掉下划线*/
+			}
+			#leftwrap ul a:hover{
+				background-color: royalblue;
+				color:white;
+			}
+			
+			#rightwrap{
+				margin:0;
+				padding:0;
+				float:left;
+			}
+			
+			#rightwrap .topmenu{
+				margin:0;
+				padding:10px;
+				background-color: white;
+			}
+			
+			
+			#rightwrap .lefticons{
+				margin:0;
+				padding:0;
+				float:left;
+				width:30%;
+			}
+			
+			#rightwrap .searchbox{
+				margin:0;
+				padding:0;
+				line-height: 40px; /*设置行高，内容垂直居中*/
+				float:left;
+				width:40%;
+			}
+			
+			#rightwrap .navwrap{
+				margin:0;
+				padding:0;
+				float:right;
+				width:140px;
+			}
+			
+			#rightwrap .contentwrap{
+				margin: 15px;
+				padding:10px;
+				background-color: white;
+				min-height: 400px;
+			}
+			
+		</style>
+	<body>
+		<div id="leftwrap">
+			<div class="logo">
+				<img src="images/logo2.png" alt="logo图片" width="30" height="30" />
+				<span>书城管理系统</span>
+			</div>
+			<div class="user">
+				<img src="images/logo.png" alt="当前登录用户头像"  width="90" height="90" /> 
+			</div>
+			<div class="subtitle">
+				欢迎访问书城管理系统
+			</div>
+			<ul>
+				<li><a href="#" >数据中心</a></li>
+				<li><a href="#" >学员管理</a></li>
+				<li><a href="#" >教师管理</a></li>
+				<li><a href="#" >订单管理</a></li>
+				<li><a href="#" >权限管理</a></li>
+				<li><a href="#" >系统管理</a></li>
+			</ul>
+			<div class="clearit"></div>
+		</div>
+		<div id="rightwrap">
+			<div class="topmenu">
+				<div class="lefticons">
+					<img src="images/menus.png" width="40" height="40" />
+					<img src="images/settings.png" width="40" height="40" />
+				</div>
+				<div class="searchbox">
+					<form>
+						<input type="text" id="keyword" name="keyword" />
+						<input type="button" value="搜索" />
+					</form>
+				</div>
+				<div class="navwrap">
+					<a href="#" ><img src="images/helper.png" width="40" height="40"  /> </a>
+					<a href="#" ><img src="images/messages.png" width="40" height="40"  /> </a>
+					<a href="/BookShop/logout" ><img src="images/logout.png" width="40" height="40"  /></a>
+				</div>
+			    <div class="clearit"></div>
+			</div>
+			<div id="contentwrap" class="contentwrap">
+				工作区
+			</div>
+		</div>
+	    <div class="clearit"></div>
+	</body>
+	<script>
+		//定义函数变量
+		let fun=function(){
+			
+			let w=window.innerWidth;
+			let h=window.innerHeight;			
+			
+			console.log("宽度："+w+"，高度："+h)		
+				
+		    let leftbox=document.getElementById("leftwrap");//左侧盒子的对象 
+			leftbox.style.height=h+"px";  //设置左侧盒子的高度
+			
+			let rightbox=document.getElementById("rightwrap");
+			rightbox.style.width=(w-leftbox.clientWidth-18)+"px";//设置右侧盒子的宽度		
+			
+			
+			let workbox=document.getElementById("contentwrap");
+			workbox.style.height=(h-110)+"px";//设置工作区盒子的宽度		
+		}
+		
+		//页面加载完成后触发onload事件
+		window.onload=fun;   		
+		//当浏览器大小改变时触发onresise事件
+		window.onresize=fun;
+	</script>
+</html>

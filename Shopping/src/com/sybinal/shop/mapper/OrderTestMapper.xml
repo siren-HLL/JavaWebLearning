@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sybinal.shop.mapper.OrderTestMapper">
+<insert id="insertOrderTest" parameterType="com.sybinal.shop.model.OrderTest">
+	insert into order_test (order_num,id,user_id,payment_type) 
+	values (#{order_num,jdbcType=VARCHAR},#{id,jdbcType=VARCHAR},#{user_id,jdbcType=VARCHAR},0);
+	<!-- <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="order_num != null">
+        order_num,
+      </if>
+      <if test="id != null">
+        id,
+      </if>
+      <if test="user_id != null">
+        user_id,
+      </if>
+      <if test="payment_type != null">
+        payment_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="order_num != null">
+        #{order_num,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="user_id != null">
+        #{user_id,jdbcType=VARCHAR},
+      </if>
+       <if test="payment_type = null">
+        0
+      </if>
+        
+      
+    </trim> -->
+</insert>
+
+<update id="updatePaymentType" parameterType="com.sybinal.shop.model.OrderTest">
+		update order_test set payment_type = #{payment_type,jdbcType=INTEGER} 
+		<where>
+		order_num = #{order_num,jdbcType=VARCHAR}
+		</where>
+</update>
+
+<select id="selectPaymentType" parameterType="com.sybinal.shop.model.OrderTest" resultType="com.sybinal.shop.model.OrderTest">
+select * from order_test where order_num = #{order_num,jdbcType=VARCHAR}
+</select>
+
+
+</mapper>

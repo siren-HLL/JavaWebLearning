@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 配置属性的元素，通过外部配置来动态替换内部定义的属性 -->
+	<properties resource="db.properties"/>
+	<!-- 配置环境，默认的环境id为mysql -->
+	<environments default="mysql">
+		<!-- 配置id为mysql的数据库环境 -->
+		<environment id="mysql">
+			<!-- 使用jdbc的事务管理：JDBC-直接使用JDBC的提交和回滚；MANAGED-用容器来管理事务的生命周期  
+			如果用Spring+mybatis就不用配置事物处理器，实际开发中会用spring自带的管理器实现事务管理 -->
+			<transactionManager type="JDBC"/>
+			<!-- 数据库连接池 -->
+			<!-- <dataSource type="POOLED">
+				<property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+				<property name="url" value="jdbc:mysql://localhost:3306/mybatis_testdb"/>
+				<property name="username" value="root"/>
+				<property name="password" value="yxf1204mr1010"/>
+			</dataSource> -->
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driver}"/>
+				<property name="url" value="${jdbc.url}"/>
+				<property name="username" value="${jdbc.username}"/>
+				<property name="password" value="${jdbc.password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- 配置mapper的位置 -->
+	<mappers>
+		<mapper resource="com/ssm/mapper/UserMapper.xml"/>
+	</mappers>
+</configuration>

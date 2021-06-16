@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	<!-- 目标类 -->
+	<bean id="userDao" class="com.ssm.aspectj.UserDaoImpl"/> 
+	<!-- 切面 -->
+	<bean id="myAspect" class="com.ssm.aspectj.xml.MyAspect"/> 
+	<aop:config>
+		<!-- 配置切面 -->
+		<aop:aspect id="aspect" ref="myAspect">
+			<!-- 配置切点 :匹配该包中任意类的任意方法的执行-->
+			<aop:pointcut expression="execution(* com.ssm.aspectj.*.*(..))" id="myPointCut"/>
+				<!-- 配置通知 -->
+					<!-- 前置通知 -->
+					<aop:before method="myBefore" pointcut-ref="myPointCut"/>
+					<!-- 后置通知：目标方法成功后被植入 -->
+					<aop:after-returning method="myAfterReturning" pointcut-ref="myPointCut" returning="returnVal"/>
+					<!-- 环绕通知 -->
+					<aop:around method="myAround" pointcut-ref="myPointCut"/>
+					<!-- 异常通知 -->
+					<aop:after-throwing method="myAfterThrowing" pointcut-ref="myPointCut" throwing="e"/>
+					<!-- 最终通知 ：不论目标方法的状态都会被植入-->
+					<aop:after method="myAfter" pointcut-ref="myPointCut"/>
+		</aop:aspect>
+	</aop:config>
+</beans>

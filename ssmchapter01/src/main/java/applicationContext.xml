@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 将指定类配置给spring ,让他创建其对象的实例 -->
+	<bean id="userDao" class="com.ssm.ioc_id.UserDaoImpl"></bean>
+	
+	<bean id="userService" class="com.ssm.ioc_id.UserServiceImpl">
+		<!-- 将name为userDao的bean实例注入userService实例中;ref指定需要向属性注入的id
+		即注入对象userDao，该对象由.UserDaoImpl类组成 -->
+		<property name="userDao" ref="userDao"></property>
+		<!-- ref则把你的id为userDao的一个bean传过去了，你在UserServiceImpl中就可以使用id为userDao对象中的属性了，
+		也就相当于你把userDao这个bean对象，在你的UserServiceImpl中new出来了 -->
+	</bean>
+	<bean id="person" class="com.ssm.ioc_id.Person">
+		<property name="age" value="17"></property>
+		<property name="name" value="Siren"></property>
+	</bean>
+	
+	
+
+</beans>

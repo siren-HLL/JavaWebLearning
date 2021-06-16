@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sybinal.shop.mapper.FaPiaoMapper">
+<insert id="insertFaPiao" parameterType="com.sybinal.shop.model.FaPiao">
+	insert into fapiao 
+	<trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dwmc != null">
+        dwmc,
+      </if>
+      <if test="id != null">
+        id,
+      </if>
+      <if test="zcdz != null">
+        zcdz,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="open_bank != null">
+        open_bank,
+      </if>
+      <if test="bank_ID != null">
+        bank_ID,
+      </if>
+      <if test="fplx != null">
+        fplx,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dwmc != null">
+        #{dwmc,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="zcdz != null">
+        #{zcdz,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="open_bank != null">
+        #{open_bank,jdbcType=VARCHAR},
+      </if>
+      <if test="bank_ID != null">
+        #{bank_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="fplx != null">
+        #{fplx,jdbcType=VARCHAR},
+      </if>
+    </trim>
+
+</insert>
+
+<select id="getFapiaoInfo" resultType="com.sybinal.shop.model.FaPiao">
+	select
+	<if test="distinct">
+		distinct
+	</if>
+	*
+	 from fapiao
+</select>
+
+<update id="updateFapiaoByTableId" parameterType="com.sybinal.shop.model.FaPiao">
+	update fapiao
+	<set>
+		<if test="dwmc !=null">
+			dwmc = #{dwmc,jdbcType=VARCHAR}，
+		</if>
+		<if test="id !=null">
+			id = #{id,jdbcType=VARCHAR}
+		</if>
+		<if test="zcdz !=null">
+			zcdz = #{zcdz,jdbcType=VARCHAR}
+		</if>
+		<if test="phone !=null">
+			phone= #{phone,jdbcType=VARCHAR}
+		</if>
+		<if test="open_bank !=null">
+			open_bank = #{open_bank,jdbcType=VARCHAR}
+		</if>
+		<if test="bank_ID !=null">
+			bank_ID = #{bank_ID,jdbcType=VARCHAR}
+		</if>
+		<if test="fplx !=null">
+			fplx = #{fplx,jdbcType=VARCHAR}
+		</if>
+	</set>
+	<where>
+		id_table = #{id_table,jdbcType=INTEGER}
+	</where>
+</update>
+
+<delete id="deleteFapiaoByPrimarykey" parameterType="com.sybinal.shop.model.FaPiao">
+	<if test="id_table != null">
+		delete from fapiao
+		 <where>
+		 id_table = #{id_table,jdbcType=INTEGER}
+		</where> 
+	</if>
+	
+</delete>
+
+</mapper>

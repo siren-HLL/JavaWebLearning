@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <classPathEntry location="/Users/Macair/Documents/OpenSource/javaWebWorkspace/BookShop/src/main/webapp/WEB-INF/lib/mysql-connector-java-5.1.18.jar"/>
+	<!-- mybatis-gnerator逆向生成配置文件 -->
+  <context id="context1" targetRuntime="MyBatis3">
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/bookstore?characterEncoding=utf8" userId="root" password="yxf1204mr1010" />
+    <javaModelGenerator targetPackage="com.yxf.bookshop.model" targetProject="BookShop" />
+    <sqlMapGenerator targetPackage="com.yxf.bookshop.mapper" targetProject="BookShop" />
+    <javaClientGenerator targetPackage="com.yxf.bookshop.mapper" targetProject="BookShop" type="XMLMAPPER" />
+    
+    <table tableName="users" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table tableName="notices" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table tableName="menus" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table tableName="orders" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table tableName="orderitems" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    <table tableName="products" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+	 
+<!-- 配置文件顺序，严格按照该顺序
+	 <properties> (0个或1个)这个元素用来指定外部的属性元素，不是必须的元素
+     <classPathEntry> (0个或多个)最常见的用法是通过这个属性指定驱动的路径（以下情况有效：当加载 JDBC 驱动内省数据库时；当加载根类中的 JavaModelGenerator 检查重写的方法时）
+     <context> (1个或多个) 用于指定生成一组对象的环境
+     targetRuntime:MyBatis3生成xml文件；MyBatis3DynamicSql或缺省直接生成注解类的sql
+     
+     <context>子元素：
+        <property> (0个或多个)
+		<plugin> (0个或多个)
+		<commentGenerator> (0个或1个)生成的注释信息
+		<jdbcConnection> (1个)
+		<javaTypeResolver> (0个或1个)
+		<javaModelGenerator> (1个)该元素用来控制生成的实体类targetPackage:生成实体类存放的包名；targetProject:指定目标项目路径
+		<sqlMapGenerator>生成XML的SQL映射文件和实体类； (0个或1个)如果targetRuntime目标是**MyBatis3**，只有当<javaClientGenerator>需要XML时，该元素必须配置一个
+		<javaClientGenerator> (0个或1个)如果不配置该元素，就不会生成Mapper接口；type:该属性用于选择一个预定义的客户端代码（可以理解为Mapper接口）生成器，targetPackage:生成实体类存放的包名
+		<table> (1个或多个)该元素用来配置要通过内省的表。只有配置的才会生成实体类和其他文件；enableXXX:XXX代表多种SQL方法，该属性用来指定是否生成对应的XXX语句；selectByPrimaryKeyQueryId:DBA跟踪工具会用到
+
+     -->
+  </context>
+</generatorConfiguration>

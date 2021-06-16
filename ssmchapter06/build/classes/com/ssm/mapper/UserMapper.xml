@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.mapper.UserMapper">
+  <!-- id查询 -->
+  <select id="findUserById" parameterType="Integer" resultType="com.ssm.po.User">
+  	select * from t_user where id=#{id}
+  	<!-- #{}表示一个占位符，相当于？；#{id}表示该占位符待接收参数的名称为id -->
+  </select>
+  <!-- 根据用户名模糊查询 -->
+  <select id="findUserByName" parameterType="String" resultType="com.ssm.po.User">
+  	select * from t_user where username like '%${value}%'
+  	<!-- '%+${value}+%' -->
+  	<!-- concat('%',${value},'%') -->
+  </select>
+  <!-- 添加用户信息 -->
+  <insert id="addUser" parameterType="com.ssm.po.User">
+  	insert into t_user(username,jobs,phone)values(#{username},#{jobs},#{phone})
+  </insert>
+  <!-- 更新用户信息 -->
+  <update id="updateUser" parameterType="com.ssm.po.User">
+  	update t_user set username=#{username},jobs=#{jobs},phone=#{phone} where id=#{id}
+  </update>
+  <!-- 删除用户 -->
+  <delete id="deleteUser" parameterType="Integer">
+  	delete from t_user where id=#{id}
+  </delete>
+</mapper>

@@ -1,0 +1,206 @@
+#homepage,#productpage,#productEdit,#orderpage,#orderEdit,#noticepage,#noticeEdit,#userpage,#userEdit{
+	margin: 20px; 
+	overflow: scroll;
+	height: calc(100vh - 40px);
+}
+
+/* 商城首页 */
+#welcomMsg{
+	background-color: rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	color: white;
+}
+
+/* 商品信息页面 */
+#productInfoTable{/* 商品信息表格 */
+	background-color: #fff;
+}
+#productThead th{
+	text-align : center ;
+	font-size: 18px;
+}
+.bookimg{
+	display:block;
+	max-width:60%;
+	max-height:40%;
+	/* height: 50%;
+	width:50%; */
+}
+#productTbody td{
+	vertical-align: middle;
+	text-align : center ;
+	font-size: 16px;
+}
+.editProduct{
+	margin-right:5px;
+	padding-right:5px;
+	border-right: grey 1px solid;
+} 
+#productAddBox{/* 新增商品表单 */
+	margin: 20px 0px 80px 0px; 
+	display: none;
+}
+#prodctAddForm{
+	background-color: #fff;
+	padding: 10px 30px 30px 30px;
+}
+#prodctAddForm hr{
+	margin-bottom: 30px;
+}
+
+/* 商品编辑页面 */
+#productEdit{
+	margin: 20px; 
+	overflow: scroll;
+	height: calc(100vh - 40px);
+}
+#productEditBox{
+	margin-top: 60px;
+	background-color: #fff;
+	padding:10px 30px 30px 30px;
+}
+#productEditBox div{
+	margin-bottom:30px;
+}
+#productEditBox hr{
+	margin-bottom:30px;
+}
+
+/* 订单信息页面 */
+#orderInfoTable{/* 订单信息表格 */
+	background-color: #fff;
+}
+#orderThead th{
+	text-align : center;
+	
+}
+#orderTbody td{
+	vertical-align: middle;
+	text-align : center ;
+	font-size: 16px;
+}
+.editOrder{
+	margin-right:5px;
+	padding-right:5px;
+	border-right: grey 1px solid;
+} 
+#orderAddBox{/* 新增订单表单 */
+	margin: 20px 0px 80px 0px; 
+	display: none;
+}
+#orderAddForm{
+	background-color: #fff;
+	padding: 10px 30px 30px 30px;
+}
+.paystate{
+	margin-bottom:20px;
+}
+#orderAddForm hr{
+	margin-bottom: 30px;
+}
+
+/* 订单编辑页面 */
+#orderEditBox{
+	margin-top: 60px;
+	background-color: #fff;
+	padding:10px 30px 30px 30px;
+}
+#orderEditBox div{
+	margin-bottom:30px;
+}
+#orderEditBox hr{
+	margin-bottom:30px;
+}
+
+/* 消息公告页面 */
+.perNotice{
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	/* color: white; */
+	border:none;
+}
+.noticeTitle{
+	color: white;
+}
+.noticeText,.noticeTime{
+	color: lightgrey;
+}
+.noticeTime,.btnGroup{
+	margin-top: 20px;
+	text-align: right;
+}
+.editBtn{
+	margin-right:20px;
+}
+
+#noticeAddBox{/* 新增公告表单 */
+	margin: 20px 0px 80px 0px; 
+	display: none;
+}
+#noticeAddForm{
+	background-color: #fff;
+	padding: 10px 30px 30px 30px;
+}
+#noticeAddForm hr{
+	margin-bottom: 30px; 
+}
+
+/* 消息编辑页面 */
+#noticeEditBox{
+	margin-top: 60px;
+	background-color: #fff;
+	padding:10px 30px 30px 30px;
+}
+#noticeEditBox div{
+	margin-bottom:30px;
+}
+#noticeEditBox hr{
+	margin-bottom:30px;
+}
+
+/* 用户信息页面 */
+#userInfoTable{/* 用户信息表格 */
+	background-color: #fff;
+}
+#userThead th{
+	text-align : center;
+	font-size: 18px;
+}
+#userTbody td{
+	vertical-align: middle;
+	text-align : center ;
+	font-size: 16px;
+}
+.editUser{
+	margin-right:5px;
+	padding-right:5px;
+	border-right: grey 1px solid;
+} 
+#userAddBox{/* 新增用户表单 */
+	margin: 20px 0px 80px 0px; 
+	display: none;
+}
+#userAddForm{
+	background-color: #fff;
+	padding: 10px 30px 30px 30px;
+}
+.genderGroup{
+	margin-bottom:20px;
+}
+#userAddForm hr{
+	margin-bottom: 30px;
+}
+
+/* 用户编辑页面 */
+#userEditBox{
+	margin-top: 60px;
+	background-color: #fff;
+	padding:10px 30px 30px 30px;
+}
+#userEditBox div{
+	margin-bottom:30px;
+}
+#userEditBox hr{
+	margin-bottom:30px;
+}
+

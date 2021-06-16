@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 配置别名 -->
+	<typeAliases>
+		<!-- 包中所有POJO类的别名为首字母小写的非限定类 -->
+		<package name="com.ssm.po"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="com/ssm/po/UserMapper.xml"/>
+		<!-- Mapper代理开发（基于MapperFactoryBean） -->
+		<!-- <mapper resource="com/ssm/mapper/UserMapper.xml"/> -->
+	</mappers>
+</configuration>

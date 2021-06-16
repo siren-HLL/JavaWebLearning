@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sybinal.shop.mapper.AccountMapper">
+<resultMap type="com.sybinal.shop.model.Account" id="BaseResultMap">
+<id property="id" jdbcType="INTEGER" column="id"/>
+
+<result property="username" jdbcType="VARCHAR" column="username"/>
+
+<result property="amount" jdbcType="DOUBLE" column="amount"/>
+
+<result property="updtime" jdbcType="TIMESTAMP" column="updtime"/>
+
+<result property="source" jdbcType="VARCHAR" column="source"/>
+
+</resultMap>
+
+
+
+<insert id="insertAccountRecord" parameterType="com.sybinal.shop.model.Account">
+INSERT INTO account (username,amount,source,updtime) VALUES(#{username},#{amount},'充值',#{updtime})
+</insert>
+
+<update id="updateAccount">
+UPDATE user SET recharge=recharge+#{amount} WHERE user_name=#{username}
+</update>
+
+<select id="selectAccountRecord" parameterType="java.lang.String" resultType="com.sybinal.shop.model.Account">
+	select * from account where username=#{username} and source="充值"
+</select>
+
+<select id="selectAccountRecords" parameterType="com.sybinal.shop.model.Account" resultType="com.sybinal.shop.model.Account">
+	select * from account where username=#{username} and source="充值"
+</select>
+
+</mapper>
